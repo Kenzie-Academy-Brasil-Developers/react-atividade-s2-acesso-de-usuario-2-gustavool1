@@ -13,11 +13,14 @@ const MembersList = ({showMembers}) =>{
         showMembers(false)
     }
     return(
-        <ul>
-            {members.map((member)=>(              
-                <li key={member.id} onClick={()=> handleClick(member.id)}>{member.name}</li>
-            ))}            
-        </ul>
+        <div className='members-container'>
+            <h1>Membros</h1>
+            <ul>
+                {members.map((member)=>(              
+                    <li key={member.id} onClick={()=> handleClick(member.id)}>{member.name}</li>
+                ))}            
+            </ul>
+        </div>
     )   
 }
 export default MembersList
