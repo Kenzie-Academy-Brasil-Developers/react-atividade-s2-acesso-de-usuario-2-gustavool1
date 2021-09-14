@@ -1,0 +1,28 @@
+.member-container{
+    border: 2px solid white;
+    padding: 20px 30px;
+    border-radius: 5px;
+}
+
+.member-container h1{
+    font-size: 28px;
+}
+.member-container p{
+    font-size: 23px;
+}
+
+.member-container button{
+   background-color: none;
+   border: none;
+   font-size: 22px; 
+   background-color: #98a3b9 ;
+   color: white;
+   padding: 10px 20px;
+   border-radius: 5px;
+   box-shadow: 5px 5px #98a3b994;
+   cursor: pointer;
+   transition: 1s;
+}
+.member-container button:hover{
+    box-shadow: 1px 1px #98a3b994;
+}

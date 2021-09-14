@@ -1,22 +1,29 @@
-import logo from './logo.svg';
 import './App.css';
-
+import { members } from './helper';
+import MembersList from './components/MembersList';
+import {Switch, Route} from 'react-router-dom'
+import { useState } from 'react';
+import CurrentMember from './components/CurrentMember';
 function App() {
+  const [showMembers, setShowMembers] = useState(true)
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+          {showMembers && <MembersList showMembers={setShowMembers}></MembersList>}
+          <Switch>
+              {members.map((member)=>(
+                member.type === 'pj' ?(
+                  <Route exact path='/company/:id' key={member.id}>
+                    <CurrentMember showMembers={setShowMembers}/>
+                  </Route>
+                ):
+                (
+                  <Route exact path='/costumer/:id' key={member.id}>
+                    <CurrentMember showMembers={setShowMembers}/>
+                  </Route>
+                )
+              ))}
+          </Switch>
       </header>
     </div>
   );
