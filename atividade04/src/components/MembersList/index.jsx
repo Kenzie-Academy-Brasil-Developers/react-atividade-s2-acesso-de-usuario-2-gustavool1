@@ -1,7 +1,7 @@
 import { members } from "../../helper.js"
 import './style.css'
-import { useHistory } from "react-router"
-const MembersList = ({showMembers}) =>{
+import { useHistory, Link} from "react-router-dom"
+const MembersList = () =>{
     const history = useHistory()
     const handleClick = (id) =>{
         const filtered = members.find((member)=>member.id === id)
@@ -10,14 +10,18 @@ const MembersList = ({showMembers}) =>{
         }else{
             history.push('/costumer/'+id)
         }
-        showMembers(false)
+        
     }
     return(
         <div className='members-container'>
             <h1>Membros</h1>
             <ul>
-                {members.map((member)=>(              
-                    <li key={member.id} onClick={()=> handleClick(member.id)}>{member.name}</li>
+                {members.map((member)=>(            
+                    member.type === 'pj'? (
+                        <Link  to={'/company/'+member.id}>{member.name}</Link>
+                    ):(
+                        <Link  to={'/customer/'+member.id}>{member.name}</Link>
+                    )
                 ))}            
             </ul>
         </div>

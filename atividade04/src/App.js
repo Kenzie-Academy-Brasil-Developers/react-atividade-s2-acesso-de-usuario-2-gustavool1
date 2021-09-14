@@ -1,28 +1,26 @@
 import './App.css';
-import { members } from './helper';
 import MembersList from './components/MembersList';
-import {Switch, Route} from 'react-router-dom'
-import { useState } from 'react';
+import {Switch, Route} from 'react-router-dom';
 import CurrentMember from './components/CurrentMember';
 function App() {
-  const [showMembers, setShowMembers] = useState(true)
   return (
     <div className="App">
       <header className="App-header">
-          {showMembers && <MembersList showMembers={setShowMembers}></MembersList>}
+          
           <Switch>
-              {members.map((member)=>(
-                member.type === 'pj' ?(
-                  <Route exact path='/company/:id' key={member.id}>
-                    <CurrentMember showMembers={setShowMembers}/>
+                  <Route exact path='/'>
+                      <MembersList/>            
                   </Route>
-                ):
-                (
-                  <Route exact path='/costumer/:id' key={member.id}>
-                    <CurrentMember showMembers={setShowMembers}/>
+              
+                  <Route exact path='/company/:id'>
+                    <CurrentMember />
                   </Route>
-                )
-              ))}
+               
+                  <Route exact path='/customer/:id'>
+                    <CurrentMember />
+                  </Route>
+                
+              
           </Switch>
       </header>
     </div>

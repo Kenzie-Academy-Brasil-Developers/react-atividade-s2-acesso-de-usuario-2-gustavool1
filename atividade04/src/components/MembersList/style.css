@@ -1,16 +1,21 @@
 .members-container{
     border: 1px solid white;
 }
+.member-container h1{
+    font-size: 28px;
+}
 ul{
     list-style:none;
     padding: 0;
 }
-li{
+
+ul a:hover{
+    color: white;
+}
+ul a{
+    display: block;
     color: lightgrey;
     cursor: pointer;
     padding: 10px 40px ;
+    text-decoration: none;
 }
-li:hover{
-    color: white;
-}
-

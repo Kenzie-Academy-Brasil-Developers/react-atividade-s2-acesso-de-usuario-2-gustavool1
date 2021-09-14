@@ -11,7 +11,8 @@
     font-size: 23px;
 }
 
-.member-container button{
+.member-container a{
+   text-decoration: none;
    background-color: none;
    border: none;
    font-size: 22px; 
@@ -23,6 +24,6 @@
    cursor: pointer;
    transition: 1s;
 }
-.member-container button:hover{
+.member-container a:hover{
     box-shadow: 1px 1px #98a3b994;
 }
